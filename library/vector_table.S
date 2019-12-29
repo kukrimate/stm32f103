@@ -23,6 +23,7 @@
 
 .section .text
 
+.global _reset_vector
 .thumb_func
 _reset_vector:
 bl reset_vector

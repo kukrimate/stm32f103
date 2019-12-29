@@ -17,11 +17,14 @@ MEMORY
 	SRAM  (RWX) : ORIGIN = _sram_base,  LENGTH = _sram_size
 }
 
+/* this isn't strictly necessary, but a linker ignores our library otherwise */
+ENTRY(_reset_vector)
+
 SECTIONS
 {
 	.vector_table _flash_base :
 	{
-		*(.vector_table)
+		*(.vector_table*)
 	} >FLASH
 
 	.text :
@@ -29,7 +32,7 @@ SECTIONS
 		. = ALIGN(4);
 		_text_start = .;
 
-		*(.text)
+		*(.text*)
 
 		. = ALIGN(4);
 		_text_end = .;
@@ -40,7 +43,7 @@ SECTIONS
 		. = ALIGN(4);
 		_rodata_start = .;
 
-		*(.rodata)
+		*(.rodata*)
 
 		. = ALIGN(4);
 		_rodata_end = .;
@@ -57,7 +60,7 @@ SECTIONS
 		*/
 		_data_lma_start = LOADADDR(.data);
 
-		*(.data)
+		*(.data*)
 
 		. = ALIGN(4);
 		_data_vma_end = .;
@@ -68,7 +71,7 @@ SECTIONS
 		. = ALIGN(4);
 		_bss_start = .;
 
-		*(.bss)
+		*(.bss*)
 		*(COMMON)
 
 		. = ALIGN(4);

@@ -16,4 +16,6 @@ struct usart
 #define USART2 ((struct usart *) 0x40004400)
 #define USART3 ((struct usart *) 0x40004800)
 
+void usart1_init();
+
 #endif
