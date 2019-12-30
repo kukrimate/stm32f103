@@ -1,7 +1,7 @@
 include ../tools/Makefile.stm32f103
 
 # Library objects
-LIBRARY_OBJ = vector_table.o hwinit.o util.o debug.o usart.o
+LIBRARY_OBJ = hwinit.o util.o debug.o usart.o
 
 .PHONY: all
 all: library.a

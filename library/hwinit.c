@@ -54,7 +54,7 @@ static inline void mem_init()
 	memset(&_bss_start, 0, &_bss_end - &_bss_start);
 }
 
-// Reset vector, called by assembly code in 'vector_table.S'
+// Reset vector, installed into the vector table
 void reset_vector()
 {
 	// Use a 72MHz clock
@@ -65,4 +65,7 @@ void reset_vector()
 
 	// Call main
 	main();
+
+	// reset vector can't return
+	for (;;) {}
 }

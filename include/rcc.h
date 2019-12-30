@@ -70,6 +70,10 @@ struct rcc
 #define RCC_CFGR_PLLMUL_16 (14 << 18)
 // #define RCC_CFGR_PLLMUL_16 (15 << 18)
 
+#define RCC_AHBENR_OTGFSEN (1 << 12)
+
+#define RCC_CFGR_OTGFSPRE (1 << 22)
+
 #define RCC ((struct rcc *) 0x40021000)
 
 #endif

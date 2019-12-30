@@ -18,13 +18,17 @@ MEMORY
 }
 
 /* this isn't strictly necessary, but a linker ignores our library otherwise */
-ENTRY(_reset_vector)
+ENTRY(reset_vector)
 
 SECTIONS
 {
 	.vector_table _flash_base :
 	{
-		*(.vector_table*)
+		LONG(_initial_sp);
+		LONG(reset_vector | 1);
+
+		/* leave space for the rest */
+		. = . + 0x148;
 	} >FLASH
 
 	.text :
