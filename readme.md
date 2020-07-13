@@ -5,7 +5,9 @@ provided by ST. This was tested on an STM32F103C8, but should work on similar
 MCUs from the series.
 
 NOTE1: This code assumes an 8MHz crystal connected, and sets the clock to 72MHz.
+
 NOTE2: Code upload via the Makefile requires an ST-LINK dongle connected.
+
 NOTE3: For serial output connect a TTL serial adapter to USART1_TX (PA9).
 
 ## references

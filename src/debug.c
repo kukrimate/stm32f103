@@ -17,6 +17,8 @@ void debug_putchar(char c)
 {
 	if (!debug_serport)
 		return;
+	if (c == '\n')
+		debug_putchar('\r');
 	while (!(debug_serport->SR & 0x80));
 	debug_serport->DR = c & 0xff;
 }
